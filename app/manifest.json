@@ -1,0 +1,48 @@
+ {
+  "manifest_version": 2,
+  "name": "goodWorcker",
+  "description": "Track time what you spend on task",
+  "version": "1.0.0",
+  
+  "icons": {
+    "16": "/icons/icon16.png",
+    "24": "/icons/icon24.png",
+    "36": "/icons/icon32.png",
+    "64": "/icons/icon64.png",
+    "128": "/icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [ "*://*/*", "file:///*", "https://*/*", "http://*/*", "<all_urls>"],
+      "js": [  "/js/main.js", "/js/shortcut.js", "/js/detectWindowVisibility.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["/js/storage.js","/js/timeHandler.js", "/js/background.js"],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "goodWorcker",
+    "default_icon": "/icons/icon32.png"
+  },
+  "web_accessible_resources": [
+    "/icons/icon64.png",
+    "/fonts/Roboto-Regular.ttf"
+  ],
+  "permissions": [
+    "<all_urls>",
+    "background",
+    "https://*/*",
+    "http://*/*",
+    "*://*.amazon.com/*",
+    "*://just-label.me/*",
+    "*://*.amazon.com/*",
+    "activeTab",
+    "tabs",
+    "storage",
+    "file://*/*",
+    "notifications",
+    "alarms"
+  ]
+	
+}
